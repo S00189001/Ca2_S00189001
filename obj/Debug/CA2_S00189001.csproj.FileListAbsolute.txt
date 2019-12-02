@@ -1,0 +1,14 @@
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\bin\Debug\CA2_S00189001.exe.config
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\bin\Debug\CA2_S00189001.exe
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\bin\Debug\CA2_S00189001.pdb
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\MainWindow.g.cs
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\App.g.cs
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001_MarkupCompile.cache
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001_MarkupCompile.lref
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\MainWindow.baml
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.g.resources
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.Properties.Resources.resources
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.csproj.GenerateResource.cache
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.exe
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.pdb
+C:\Users\MBowe\source\repos\BiggerNSmaller\CA2_S00189001\obj\Debug\CA2_S00189001.csprojAssemblyReference.cache
