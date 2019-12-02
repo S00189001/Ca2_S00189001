@@ -66,9 +66,11 @@ namespace CA2_S00189001
             AllActivityList.Remove(activity);
             //loop the list and add the cost to 'totalSelectedActivity'
             TotalSelectedActivity();
+            SortAll();
             
         }
 
+        // TotalSelectedActivity is used to update the total cost text and " formatting " it :D 
         public void TotalSelectedActivity()
         {
             totalSelectedActivityCost = 0;
@@ -92,6 +94,7 @@ namespace CA2_S00189001
             AllActivityList.Add(activity);
             addedActivityList.Remove(activity);
             TotalSelectedActivity();
+            SortAll();            
         }
 
         public void ActivityDescription(Activity activity)
@@ -117,18 +120,54 @@ namespace CA2_S00189001
             activityList = CopyList( AllActivityList,activityList);
             listboxActivities.ItemsSource = activityList;
             listboxSelectedActivities.ItemsSource = addedActivityList;
+            SortAll();
         }
+
+        public void SortAll()
+        {
+            SortList(activityList);
+            SortList(addedActivityList);
+            SortList(AllActivityList);
+        }
+
+
+
+        void SortList(ObservableCollection<Activity> listToSort)
+        {
+            // make new list of type Activity 
+            List<Activity> sortedList = new List<Activity>();
+
+            //for each item in 'listToSort' i will add it to 'the new list of type activity' 
+            foreach (Activity activity in listToSort)
+            {
+                sortedList.Add(activity);
+            }
+
+            //sort the new list of type activity name.Sort()
+            sortedList.Sort();
+
+            //clear 'lsitToSort'
+            listToSort.Clear();
+
+            //copy items in new list of type activity to 'listToSort'
+            foreach  (Activity activity in sortedList)
+            {
+                listToSort.Add(activity);
+            }
+        }
+
 
         private Activity RandomActivity()
         {
             int cost = random.Next(20, 150);
             DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 30));
             ActivityType type = (ActivityType)random.Next(1, 4);
-            string description = " sdadd" + type.ToString();
+            string description = "sdadd" + type.ToString();
             string Name = random.Next(1, 11) % 2 == 0 ? "firstname " + type.ToString() : "secondname " + type.ToString();
             return new Activity(Name, cost, date, description, type);
         }
        
+        // Used to copy Activities from one list to another
         private ObservableCollection<Activity> CopyList(ObservableCollection<Activity> fromList, ObservableCollection<Activity> toList)
         {
             if (fromList == null)
@@ -140,6 +179,7 @@ namespace CA2_S00189001
             return toList;
         }
 
+        // Filter is used to filter the activities by type that is dictated by the radio button.
         private void Filter(ActivityType TYPE)
         {
             switch (TYPE)

@@ -36,7 +36,7 @@ namespace CA2_S00189001
             return activity.date.CompareTo(this.date);
         }
 
-        // Formatting the strings within the list boxes. :)
+        // Formatting the strings within the list boxes. 
         public override string ToString()
         {
             return Name + " - " + date.ToShortDateString();
