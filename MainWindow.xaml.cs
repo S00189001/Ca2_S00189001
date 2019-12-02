@@ -164,8 +164,8 @@ namespace CA2_S00189001
 
         private void listboxActivities_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            ActivityDescription(listboxActivities.SelectedItem as Activity);
+            ListBox temp = sender as ListBox;
+            ActivityDescription(temp.SelectedItem as Activity);
         }
     }
 }
