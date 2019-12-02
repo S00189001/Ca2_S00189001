@@ -30,6 +30,7 @@ namespace CA2_S00189001
         public MainWindow()
         {
             InitializeComponent();
+            ActivityDescription(null);
         }
 
         private void rbtnAll_Checked(object sender, RoutedEventArgs e)
@@ -93,6 +94,16 @@ namespace CA2_S00189001
             TotalSelectedActivity();
         }
 
+        public void ActivityDescription(Activity activity)
+        {
+            if (activity == null)
+            {
+                txtbDescription.Text = "Nothing is selected :(";
+                return;
+            }
+            txtbDescription.Text = activity.GetDescription();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {          
             addedActivityList = new ObservableCollection<Activity>();
@@ -149,6 +160,12 @@ namespace CA2_S00189001
                     break;
 
             }
+        }
+
+        private void listboxActivities_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            ActivityDescription(listboxActivities.SelectedItem as Activity);
         }
     }
 }

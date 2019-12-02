@@ -15,7 +15,7 @@
         <RadioButton x:Name="rbtnWater" Content="Water" HorizontalAlignment="Left" Margin="30,182,0,0" VerticalAlignment="Top" Checked="rbtnWater_Checked" GroupName="rbtnChecks"/>
         <RadioButton x:Name="rbtnAir" Content="Air" HorizontalAlignment="Left" Margin="30,211,0,0" VerticalAlignment="Top" Checked="rbtnAir_Checked" GroupName="rbtnChecks"/>
         <Label Content="All Activities" HorizontalAlignment="Left" Margin="100,97,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="listboxActivities" HorizontalAlignment="Left" Height="183" Margin="100,123,0,0" VerticalAlignment="Top" Width="228"/>
+        <ListBox x:Name="listboxActivities" HorizontalAlignment="Left" Height="183" Margin="100,123,0,0" VerticalAlignment="Top" Width="228" SelectionChanged="listboxActivities_SelectionChanged"/>
         <ListBox x:Name="listboxSelectedActivities" HorizontalAlignment="Left" Height="183" Margin="476,123,0,0" VerticalAlignment="Top" Width="228"/>
         <Label Content="Selected Activities" HorizontalAlignment="Left" Margin="476,97,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAddRight" Content="Add" HorizontalAlignment="Left" Margin="367,152,0,0" VerticalAlignment="Top" Width="75" Click="btnAddRight_Click"/>

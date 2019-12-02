@@ -12,7 +12,7 @@ namespace CA2_S00189001
     }
 
 
-    class Activity : IComparable
+    public class Activity : IComparable
     {
         public string Name;
         public decimal cost;
@@ -20,7 +20,7 @@ namespace CA2_S00189001
         public string description;
         public ActivityType type;
 
-        public Activity(string NAME, int COST, DateTime DATE, string DESCRIPTION ,ActivityType TYPE)
+        public Activity(string NAME, int COST, DateTime DATE, string DESCRIPTION, ActivityType TYPE)
         {
             type = TYPE;
             Name = NAME;
@@ -38,6 +38,12 @@ namespace CA2_S00189001
         public override string ToString()
         {
             return Name + " - " + date.ToShortDateString();
+        }
+
+
+        public string GetDescription()
+        {
+            return String.Format("{0} - {1:c}", description, cost);
         }
     }
 }
