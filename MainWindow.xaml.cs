@@ -93,14 +93,13 @@ namespace CA2_S00189001
         }
 
         private Activity RandomActivity()
-        {           
+        {
             int cost = random.Next(20, 150);
             DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 31));
-            ActivityType type = (ActivityType)random.Next(1,4) ;
+            ActivityType type = (ActivityType)random.Next(1, 4);
             string description = " sdadd" + type.ToString();
             string Name = random.Next(1, 11) % 2 == 0 ? "firstname " + type.ToString() : "secondname " + type.ToString();
             return new Activity(Name, cost, date, description, type);
-
         }
        
         private ObservableCollection<Activity> CopyList(ObservableCollection<Activity> fromList, ObservableCollection<Activity> toList)
@@ -135,47 +134,5 @@ namespace CA2_S00189001
 
             }
         }
-        //}        private void Filter(ActivityType TYPE)
-        //{
-        //    switch (TYPE)
-        //    {
-        //        case ActivityType.All:
-        //            foreach (Activity activity in AllActivityList)
-        //            {
-        //                if (activity.type == ActivityType.All)
-        //                    activityList.Add(activity);
-        //            }
-        //            break;
-        //        case ActivityType.Land:
-        //            // Display Land Only
-        //            activityList.Clear();
-        //            foreach (Activity activity in AllActivityList)
-        //            {
-        //                if (activity.type == ActivityType.Land)
-        //                    activityList.Add(activity);
-        //            }
-        //            break;
-        //        case ActivityType.Water:
-        //            //Display Water Only
-        //            activityList.Clear();
-        //            foreach (Activity activity in AllActivityList)
-        //            {
-        //                if (activity.type == ActivityType.Water)
-        //                    activityList.Add(activity);
-        //            }
-        //            break;
-        //        case ActivityType.Air:
-        //            // Display Air Only
-        //            foreach (Activity activity in AllActivityList)
-        //            {
-        //                if (activity.type == ActivityType.Air)
-        //                    activityList.Add(activity);
-        //            }
-        //            break;
-        //        default:
-        //            //Display All
-        //            break;
-        //    }
-        //}
     }
 }
