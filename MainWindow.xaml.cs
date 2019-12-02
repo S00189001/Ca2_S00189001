@@ -133,8 +133,6 @@ namespace CA2_S00189001
             SortList(AllActivityList);
         }
 
-
-
         void SortList(ObservableCollection<Activity> listToSort)
         {
             // make new list of type Activity 
