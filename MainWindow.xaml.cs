@@ -58,7 +58,7 @@ namespace CA2_S00189001
             if (listboxActivities.SelectedIndex < 0)
             {
                 return;
-            }            
+            }
 
             Activity activity = activityList[listboxActivities.SelectedIndex];
             addedActivityList.Add(activity);
@@ -67,14 +67,14 @@ namespace CA2_S00189001
             //loop the list and add the cost to 'totalSelectedActivity'
             TotalSelectedActivity();
             SortAll();
-            
+
         }
 
         // TotalSelectedActivity is used to update the total cost text and " formatting " it :D 
         public void TotalSelectedActivity()
         {
             totalSelectedActivityCost = 0;
-            foreach  (Activity activity in addedActivityList)
+            foreach (Activity activity in addedActivityList)
             {
                 totalSelectedActivityCost += activity.cost;
             }
@@ -94,7 +94,7 @@ namespace CA2_S00189001
             AllActivityList.Add(activity);
             addedActivityList.Remove(activity);
             TotalSelectedActivity();
-            SortAll();            
+            SortAll();
         }
 
         public void ActivityDescription(Activity activity)
@@ -108,16 +108,19 @@ namespace CA2_S00189001
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {          
+        {
             addedActivityList = new ObservableCollection<Activity>();
             activityList = new ObservableCollection<Activity>();
             AllActivityList = new ObservableCollection<Activity>();
             random = new Random();
-            for (int i = 0; i < 10; i++)
-            {
-                AllActivityList.Add(RandomActivity());
-            }
-            activityList = CopyList( AllActivityList,activityList);
+            ActivityCreation();
+
+            // Old code, Replaces with ActivityCreation
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    AllActivityList.Add(RandomActivity());
+            //}
+            activityList = CopyList(AllActivityList, activityList);
             listboxActivities.ItemsSource = activityList;
             listboxSelectedActivities.ItemsSource = addedActivityList;
             SortAll();
@@ -150,23 +153,23 @@ namespace CA2_S00189001
             listToSort.Clear();
 
             //copy items in new list of type activity to 'listToSort'
-            foreach  (Activity activity in sortedList)
+            foreach (Activity activity in sortedList)
             {
                 listToSort.Add(activity);
             }
         }
 
+        // Old code, Replaces with ActivityCreation
+        //private Activity RandomActivity()
+        //{
+        //    int cost = random.Next(20, 150);
+        //    DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 30));
+        //    ActivityType type = (ActivityType)random.Next(1, 4);
+        //    string description = "sdadd" + type.ToString();
+        //    string Name = random.Next(1, 11) % 2 == 0 ? "firstname " + type.ToString() : "secondname " + type.ToString();
+        //    return new Activity(Name, cost, date, description, type);
+        //}
 
-        private Activity RandomActivity()
-        {
-            int cost = random.Next(20, 150);
-            DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 30));
-            ActivityType type = (ActivityType)random.Next(1, 4);
-            string description = "sdadd" + type.ToString();
-            string Name = random.Next(1, 11) % 2 == 0 ? "firstname " + type.ToString() : "secondname " + type.ToString();
-            return new Activity(Name, cost, date, description, type);
-        }
-       
         // Used to copy Activities from one list to another
         private ObservableCollection<Activity> CopyList(ObservableCollection<Activity> fromList, ObservableCollection<Activity> toList)
         {
@@ -206,6 +209,101 @@ namespace CA2_S00189001
         {
             ListBox temp = sender as ListBox;
             ActivityDescription(temp.SelectedItem as Activity);
+        }
+
+        public void ActivityCreation()
+        {
+            Activity l1 = new Activity()
+            {
+                Name = "Treking",
+                description = "Instructor led group trek through local mountains.",
+                date = new DateTime(2019, 06, 01),
+                type = ActivityType.Land,
+                cost = 20m
+            };
+
+            Activity l2 = new Activity()
+            {
+                Name = "Mountain Biking",
+                description = "Instructor led half day mountain biking.  All equipment provided.",
+                date = new DateTime(2019, 06, 02),
+                type = ActivityType.Land,
+                cost = 30m
+            };
+
+            Activity l3 = new Activity()
+            {
+                Name = "Abseiling",
+                description = "Experience the rush of adrenaline as you descend cliff faces from 10-500m.",
+                date = new DateTime(2019, 06, 03),
+                type = ActivityType.Land,
+                cost = 40m
+            };
+
+            Activity w1 = new Activity()
+            {
+                Name = "Kayaking",
+                description = "Half day lakeland kayak with island picnic.",
+                date = new DateTime(2019, 06, 01),
+                type = ActivityType.Water,
+                cost = 40m
+            };
+
+            Activity w2 = new Activity()
+            {
+                Name = "Surfing",
+                description = "2 hour surf lesson on the wild atlantic way",
+                date = new DateTime(2019, 06, 02),
+                type = ActivityType.Water,
+                cost = 25m
+            };
+
+            Activity w3 = new Activity()
+            {
+                Name = "Sailing",
+                description = "Full day lakeland kayak with island picnic.",
+                date = new DateTime(2019, 06, 03),
+                type = ActivityType.Water,
+                cost = 50m
+            };
+
+            Activity a1 = new Activity()
+            {
+                Name = "Parachuting",
+                description = "Experience the thrill of free fall while you tandem jump from an airplane.",
+                date = new DateTime(2019, 06, 01),
+                type = ActivityType.Air,
+                cost = 100m
+            };
+
+            Activity a2 = new Activity()
+            {
+                Name = "Hang Gliding",
+                description = "Soar on hot air currents and enjoy spectacular views of the coastal region.",
+                date = new DateTime(2019, 06, 02),
+                type = ActivityType.Air,
+                cost = 80m
+            };
+
+            Activity a3 = new Activity()
+            {
+                Name = "Helicopter Tour",
+                description = "Experience the ultimate in aerial sight-seeing as you tour the area in our modern helicopters",
+                date = new DateTime(2019, 06, 03),
+                type = ActivityType.Air,
+                cost = 200m
+            };
+
+            AllActivityList.Add(l1);
+            AllActivityList.Add(l2);
+            AllActivityList.Add(l3);
+            AllActivityList.Add(w1);
+            AllActivityList.Add(w2);
+            AllActivityList.Add(w3);
+            AllActivityList.Add(a1);
+            AllActivityList.Add(a2);
+            AllActivityList.Add(a3);
+            SortList(AllActivityList);
         }
     }
 }

@@ -21,7 +21,7 @@
         <Button x:Name="btnAddRight" Content="Add" HorizontalAlignment="Left" Margin="367,152,0,0" VerticalAlignment="Top" Width="75" Click="btnAddRight_Click"/>
         <Button x:Name="btnRemoveLeft" Content="Remove" HorizontalAlignment="Left" Margin="367,206,0,0" VerticalAlignment="Top" Width="75" Click="btnRemoveLeft_Click"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="100,322,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="txtbDescription" HorizontalAlignment="Left" Margin="100,348,0,0" TextWrapping="Wrap" Text="Description here" VerticalAlignment="Top" Width="182" Height="51"/>
+        <TextBlock x:Name="txtbDescription" HorizontalAlignment="Left" Margin="100,348,0,0" TextWrapping="Wrap" Text="Description here" VerticalAlignment="Top" Width="604" Height="51"/>
 
     </Grid>
 </Window>

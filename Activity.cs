@@ -29,6 +29,10 @@ namespace CA2_S00189001
             description = DESCRIPTION;
         }
 
+        public Activity()
+        {
+        }
+
         // CompareTo is a method used for sorting lists.
         public int CompareTo(object obj)
         {
