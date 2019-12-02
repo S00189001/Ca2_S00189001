@@ -25,6 +25,8 @@ namespace CA2_S00189001
         ObservableCollection<Activity> activityList;
         ObservableCollection<Activity> addedActivityList;
         ObservableCollection<Activity> AllActivityList;
+        public decimal totalSelectedActivityCost = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -61,6 +63,20 @@ namespace CA2_S00189001
             addedActivityList.Add(activity);
             activityList.Remove(activity);
             AllActivityList.Remove(activity);
+            //loop the list and add the cost to 'totalSelectedActivity'
+            TotalSelectedActivity();
+            
+        }
+
+        public void TotalSelectedActivity()
+        {
+            totalSelectedActivityCost = 0;
+            foreach  (Activity activity in addedActivityList)
+            {
+                totalSelectedActivityCost += activity.cost;
+            }
+            string total = "€ " + totalSelectedActivityCost.ToString() + ".00";
+            totalCost.Text = total;
         }
 
         private void btnRemoveLeft_Click(object sender, RoutedEventArgs e)
@@ -74,7 +90,7 @@ namespace CA2_S00189001
             activityList.Add(activity);
             AllActivityList.Add(activity);
             addedActivityList.Remove(activity);
-            
+            TotalSelectedActivity();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -95,7 +111,7 @@ namespace CA2_S00189001
         private Activity RandomActivity()
         {
             int cost = random.Next(20, 150);
-            DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 31));
+            DateTime date = new DateTime(random.Next(2000, 2020), random.Next(1, 13), random.Next(1, 30));
             ActivityType type = (ActivityType)random.Next(1, 4);
             string description = " sdadd" + type.ToString();
             string Name = random.Next(1, 11) % 2 == 0 ? "firstname " + type.ToString() : "secondname " + type.ToString();
