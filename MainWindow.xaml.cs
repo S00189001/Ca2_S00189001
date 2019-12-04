@@ -55,20 +55,37 @@ namespace CA2_S00189001
         }
 
         private void btnAddRight_Click(object sender, RoutedEventArgs e)
-        {
-            if (listboxActivities.SelectedIndex < 0)
+        {           
+
+            //if (listboxActivities.SelectedIndex < 0)
+            //{
+            //    return;
+            //}
+
+            Activity activity = listboxActivities.SelectedItem as Activity;
+
+            // if the ctivity is null show the message and return 
+            if (activity == null)
             {
+                NothingSelected(activity);
                 return;
             }
 
-            Activity activity = activityList[listboxActivities.SelectedIndex];
 
             foreach (Activity item in addedActivityList)
             {
                 if (item.date == activity.date)
                 {
-                    MessageBox.Show("Invalid option. Two selected Activities have the same date.");
+                    MessageBox.Show("Exception \n Two Selected Activities Have The Same Date.", "Date Conflict Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                    for (int i = 5; i > 0; i--)
+                    {
+                        string timer = string.Format("SYSTEM FAILURE \n Hardware failure. Now shutting down in {0} Seconds.", i);
+                        MessageBox.Show(timer, "SYSTEM CRITICAL FAILURE", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    MessageBox.Show("I JOKES :)", "DONT PANIC", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
+
                 }
             }
             addedActivityList.Add(activity);
@@ -77,10 +94,16 @@ namespace CA2_S00189001
             //loop the list and add the cost to 'totalSelectedActivity'
             TotalSelectedActivity();
             SortAll();
-
-          
-
         }
+
+        public void NothingSelected(Activity activity)
+        {
+            if (activity == null)
+            {
+                MessageBox.Show("Exclamation \n No Activity Is Selected.", "Activity Selection Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
 
         // TotalSelectedActivity is used to update the total cost text and " formatting " it :D 
         public void TotalSelectedActivity()
@@ -96,12 +119,20 @@ namespace CA2_S00189001
 
         private void btnRemoveLeft_Click(object sender, RoutedEventArgs e)
         {
-            if (listboxSelectedActivities.SelectedIndex < 0)
+            //if (listboxSelectedActivities.SelectedIndex < 0)
+            //{
+            //    return;
+            //}
+
+            //Activity activity = addedActivityList[listboxSelectedActivities.SelectedIndex];
+            Activity activity = listboxSelectedActivities.SelectedItem as Activity;
+
+            if (activity == null)
             {
+                NothingSelected(activity);
                 return;
             }
 
-            Activity activity = addedActivityList[listboxSelectedActivities.SelectedIndex];
             activityList.Add(activity);
             AllActivityList.Add(activity);
             addedActivityList.Remove(activity);
