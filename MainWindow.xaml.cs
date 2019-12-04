@@ -22,6 +22,7 @@ namespace CA2_S00189001
     public partial class MainWindow : Window
     {
         Random random;
+        // Don't have to manually refreash when adding or removing from list ( Not by default )
         ObservableCollection<Activity> activityList;
         ObservableCollection<Activity> addedActivityList;
         ObservableCollection<Activity> AllActivityList;
@@ -61,12 +62,23 @@ namespace CA2_S00189001
             }
 
             Activity activity = activityList[listboxActivities.SelectedIndex];
+
+            foreach (Activity item in addedActivityList)
+            {
+                if (item.date == activity.date)
+                {
+                    MessageBox.Show("Invalid option. Two selected Activities have the same date.");
+                    return;
+                }
+            }
             addedActivityList.Add(activity);
             activityList.Remove(activity);
             AllActivityList.Remove(activity);
             //loop the list and add the cost to 'totalSelectedActivity'
             TotalSelectedActivity();
             SortAll();
+
+          
 
         }
 
